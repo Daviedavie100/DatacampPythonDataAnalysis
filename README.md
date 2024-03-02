@@ -20,3 +20,5 @@ Contains training materials for python data analysis
 - Usage `.agg(['mean', 'std', 'min', 'max'])`, 
 - or `.agg({col_1_name:['mean', 'std'], col_2_name:['min', 'max']})` use of dictionary
 - or `groupby('col').agg(col_mean=('col_to_find_mean',mean'), col_std=('col_to_find_std', 'std'))`
+
+## Addressing missing data
