@@ -50,3 +50,15 @@ Contains training materials for python data analysis
 - create phrases `val1='str1|str2', val2='str3|str4', val3='str5|str5'`
 - create condition list `conditions=[(data['col'].str.contains(val1)), (data['col'].str.contains(val2)), (data['col'].str.contains(val3))]`
 - create category in the data `data['category']=np.select(condinditions, cat_list, default='Other')` 
+
+## Working with numeric data
+
+- Converting strings to numbers
+- First, we need to remove the commas from the values,use pandas `.str.replace()`
+- Next, we change the data type to float usin `.astype(float)`
+- Lastly, we'll make a new column in the dataframe `data['new_col']=`
+
+### Adding summary statistics into a DataFrame
+
+- sometimes we might prefer to add summary statistics directly into our DataFrame, rather than creating a summary table.
+- using pandas .transform and lambda function `data['std_dev']=data.groupby()[].transform(lambda x: x.std())`
