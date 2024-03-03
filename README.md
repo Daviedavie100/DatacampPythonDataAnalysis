@@ -22,3 +22,23 @@ Contains training materials for python data analysis
 - or `groupby('col').agg(col_mean=('col_to_find_mean',mean'), col_std=('col_to_find_std', 'std'))`
 
 ## Addressing missing data
+
+- Why is missing data a problem? It can affect distributions, less representative of the popultion hence leading us to draw incorrect conclusions
+- Check missing data `data.isna().sum()`
+- There are various strategies for addressing missing data
+- **(a)** One rule of thumb is to remove observations if they amount to five percent or less of all values. 
+- **(b)** If we have more missing values, instead of dropping them, we can replace them with a summary statistic like the mean, median, or mode, depending on the context (imputation)
+- **(c)** Impute by sub-group 
+
+### process
+
+- Multiply the lenth og the data by 5% `threshold=len(data)*0.05`
+- Filter columns with missing values less than the threshold `columns_to_drop=data.columns[data.isna().sum()<=threshold]`
+- Drop the columns with missing values `data.dropna(subset=columns_to_drop, inplace=True)`
+- Impute summary statistics for the new data `cols_with_missing_values=new_data.columns[new_data.isna().sum()>0]` 
+- then fill with mode `for col in cols_with_missing_values[:-1]: new_data[col].fillna(new_data[col].mode()[0])` and if there are still mising values;
+- impute using subgroup meian `new_data_dict=new_data.groupby('col_with_missing_vals')['col_whose_median_is_used'].median().to_dict()` 
+- then fill `new_data['col_whose_median_is_used']=new_data['col_whose_median_is_used'].fillna(new_data['col_with_missing_values'].map(new_data_dict))`
+- 
+
+
