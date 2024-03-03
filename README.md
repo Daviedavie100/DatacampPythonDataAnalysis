@@ -39,6 +39,14 @@ Contains training materials for python data analysis
 - then fill with mode `for col in cols_with_missing_values[:-1]: new_data[col].fillna(new_data[col].mode()[0])` and if there are still mising values;
 - impute using subgroup meian `new_data_dict=new_data.groupby('col_with_missing_vals')['col_whose_median_is_used'].median().to_dict()` 
 - then fill `new_data['col_whose_median_is_used']=new_data['col_whose_median_is_used'].fillna(new_data['col_with_missing_values'].map(new_data_dict))`
-- 
 
+## Converting and analyzing categorical data
 
+- Filtering/selecting data with non-numric columns `data.select_dtypes('object')`
+- Count number of unique values `data.nunique()` gives integer-exact number of uniques
+- Extracting value from categories. We can use the **pandas series-dot-string-dot-contains method**, which allows us to search a column for a specific string or multiple strings. `data.str.contains()` for single and `data.str.contains('str1|str2')` for multiple phrases and `data.str.contains('^new')` for string starting with phrase 'new'
+### process
+- create caterories `cat_list=[]`
+- create phrases `val1='str1|str2', val2='str3|str4', val3='str5|str5'`
+- create condition list `conditions=[(data['col'].str.contains(val1)), (data['col'].str.contains(val2)), (data['col'].str.contains(val3))]`
+- create category in the data `data['category']=np.select(condinditions, cat_list, default='Other')` 
