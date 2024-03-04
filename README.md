@@ -6,6 +6,10 @@
 - EDA results often inform the next steps for the dataset, whether that be generating hypotheses, preparing the data for use in a machine learning model, or even throwing the data out and gathering new data!
 - Methods used: `.info(), .value_counts(), .describe()`
 
+## Why perform EDA?
+
+EDA is performed for a variety of reasons, such as detecting patterns and relationships in data, generating questions or hypotheses, or to prepare data for machine learning models.
+
 ### Data validation
 
 - Data validation is an important early step in EDA. We want to understand whether data types and ranges are as expected before we progress too far in our analysis! Let's dive in.
@@ -123,7 +127,9 @@
 - Categorical variables are harder to summarize numerically, so we often rely on visualizations to explore their relationships. 
 
 - use  `sns.histplot(hue='cat_col')` but categories overlap with each other
-- Kernel Density Estimate (KDE) plots address this overlapping issue. 
+- Kernel Density Estimate (KDE) plots address this overlapping issue `sns.kdeplot(hue='cat_col')`
 - Similar to histograms, KDEs allow us to visualize distributions. 
 - They are considered more interpretable
 - However, due to the smoothing algorithm used in KDE plots, the curve can include values that don't make sense, so it's important to set good smoothing parameters.
+- use cut argument `sns.kdeplot(hue='cat_col', cut=0)` cut tells Seaborn how far past the minimum and maximum data values the curve should go when smoothing is applied.
+- Cumulative KDE plots `sns.kdeplot(hue='cat_col', cut=0, cumulative=True)`, which is a graph describes the probability
