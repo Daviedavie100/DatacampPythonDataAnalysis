@@ -98,3 +98,15 @@ Contains training materials for python data analysis
 - **Visualizing patterns over time**
 
 - use line plots
+
+## Correlation
+
+- Correlation describes the direction of the relationship between two variables as well as its strength
+- it can help us use variables to predict future outcomes. 
+- pairwise correlation of numeric columns in a DataFrame, use pandas' `.corr` method, which calculates the Pearson correlation coefficient, and measures the linear relationship between two variables. 
+- A negative correlation coefficient indicates that as one variable increases, the other decreases. 
+- A value **closer to zero** imply a weak relationship, while values **closer to one** imply stronger relationships. 
+
+- **Visualizing patterns over time**
+
+- use seaborn heatmap plots
