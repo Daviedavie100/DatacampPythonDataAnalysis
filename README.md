@@ -117,3 +117,13 @@
 - use **Pairplots**, `sns.pairplot(data=data)` which plots all pairwise relationships between numerical variables in one visualization.
 - However, having this much information in one visual can be difficult to interpret, especially with big datasets
 - remedy is to limit the number of plotted relationships by setting the vars argument equal to the variables of interest `sns.pairplot(data=data, vars=['cols selected'])`
+
+## Factor relationships and distributions
+
+- Categorical variables are harder to summarize numerically, so we often rely on visualizations to explore their relationships. 
+
+- use  `sns.histplot(hue='cat_col')` but categories overlap with each other
+- Kernel Density Estimate (KDE) plots address this overlapping issue. 
+- Similar to histograms, KDEs allow us to visualize distributions. 
+- They are considered more interpretable
+- However, due to the smoothing algorithm used in KDE plots, the curve can include values that don't make sense, so it's important to set good smoothing parameters.
