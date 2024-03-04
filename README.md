@@ -117,5 +117,4 @@ Contains training materials for python data analysis
 - use **Scatter plots** `sns.scatterplot(data=data, x='', y='')`
 - use **Pairplots**, `sns.pairplot(data=data)` which plots all pairwise relationships between numerical variables in one visualization.
 - However, having this much information in one visual can be difficult to interpret, especially with big datasets
-- remedy is to limit the number of plotted relationships by setting the vars argument equal to the variables of interest `sns.pairplot(data=data, vars=['cols selected'])`. 
-
+- remedy is to limit the number of plotted relationships by setting the vars argument equal to the variables of interest `sns.pairplot(data=data, vars=['cols selected'])`
