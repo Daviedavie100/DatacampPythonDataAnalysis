@@ -62,3 +62,27 @@ Contains training materials for python data analysis
 
 - sometimes we might prefer to add summary statistics directly into our DataFrame, rather than creating a summary table.
 - using pandas .transform and lambda function `data['std_dev']=data.groupby()[].transform(lambda x: x.std())`
+
+## Handling outliers
+
+-  an outlier is an observation that is far away from other data points.
+
+1. Using descriptive statistics
+
+- identifying outliers with the pandas dot-describe method. `data.describe()`
+- when the maximum value is more than four times the mean and median. 
+
+2. Using the interquartile range
+
+- We can define an outlier mathematically. First, we need to know the interquartile range, or IQR, which is the difference between the 75th and 25th percentiles. 
+- check IQR in box plots. You can also calculate IQR, `75th _percentile=data.quantile(0.75)` while `25th_percentile=data.quantile(0.25)` IQR is the difference
+- Then use IQR to finde an **upper outlier** `upper_threshold=75th_percentile + 1.5 * IQR` and **lower outlier** `lower_threshold=25th_percentile - 1.5 * IQR`
+-  Subsetting our data to obtain values beyond the threshold `(data<lower) | (data>upper)`
+
+-  **Why look for outliers?** during EDA
+
+- These are extreme values and may not accurately represent the data.
+- They can skew the mean and standard deviation. 
+
+- **What to do about outliers?** ask yuorself why these outliers exist. If they are a representative of a subset of the data, we could just **leave the values** however if we do know the values are not accurate, error occured during data collection then **remove the values** `(data>lower) & (data<upper)`
+
