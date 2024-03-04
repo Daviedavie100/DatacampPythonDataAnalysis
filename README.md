@@ -106,7 +106,16 @@ Contains training materials for python data analysis
 - pairwise correlation of numeric columns in a DataFrame, use pandas' `.corr` method, which calculates the Pearson correlation coefficient, and measures the linear relationship between two variables. 
 - A negative correlation coefficient indicates that as one variable increases, the other decreases. 
 - A value **closer to zero** imply a weak relationship, while values **closer to one** imply stronger relationships. 
+- Pearson coefficient only describes the linear correlation between variables. 
+- Variables can have a strong non-linear relationship and a Pearson correlation coefficient of close to zero. 
+- Data can also have a correlation coefficient indicating a strong linear relationship when quadratic is actually a better fit for the data. 
+- so it's always important to complement correlation calculations with scatter plots
 
 - **Visualizing patterns over time**
 
-- use seaborn heatmap plots
+- use **seaborn heatmap** plots `sns.heatmap(data.corr(), annot=True)` setting the annot argument to True labels the correlation coefficient inside each cell
+- use **Scatter plots** `sns.scatterplot(data=data, x='', y='')`
+- use **Pairplots**, `sns.pairplot(data=data)` which plots all pairwise relationships between numerical variables in one visualization.
+- However, having this much information in one visual can be difficult to interpret, especially with big datasets
+- remedy is to limit the number of plotted relationships by setting the vars argument equal to the variables of interest `sns.pairplot(data=data, vars=['cols selected'])`. 
+
