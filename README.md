@@ -133,3 +133,24 @@ EDA is performed for a variety of reasons, such as detecting patterns and relati
 - However, due to the smoothing algorithm used in KDE plots, the curve can include values that don't make sense, so it's important to set good smoothing parameters.
 - use cut argument `sns.kdeplot(hue='cat_col', cut=0)` cut tells Seaborn how far past the minimum and maximum data values the curve should go when smoothing is applied.
 - Cumulative KDE plots `sns.kdeplot(hue='cat_col', cut=0, cumulative=True)`, which is a graph describes the probability
+
+### Representative data
+
+There's one requirement data must satisfy - it must be representative of the population we wish to study. 
+
+### Categorical classes
+
+With categorical data, one of the most important considerations is the representation of classes or labels
+
+### Class imbalance
+
+This is where one class occurs more frequently than others. This can bias results, particularly if this class does not occur more frequently in the population.
+
+### Class frequency
+
+The number of observations per class `.value_counts`
+
+### Relative class frequency
+
+We use **value_counts method** again, but set the normalize keyword argument equal to True `data.value_counts(normalize=True)` 
+
