@@ -144,13 +144,10 @@ With categorical data, one of the most important considerations is the represent
 
 ### Class imbalance
 
-This is where one class occurs more frequently than others. This can bias results, particularly if this class does not occur more frequently in the population.
+This is where one class occurs more frequently than others. This can bias results, particularly if this class does not occur more frequently in the population. Can be detected using:
 
-### Class frequency
-
-The number of observations per class `.value_counts`
-
-### Relative class frequency
-
-We use **value_counts method** again, but set the normalize keyword argument equal to True `data.value_counts(normalize=True)` 
+- **Class frequency** the number of observations per class `.value_counts`
+- **Relative class frequency** we use **value_counts method** again, but set the normalize keyword argument equal to True `data.value_counts(normalize=True)` 
+- **Cross-tabulation** is another method for looking at class frequency. It enables us to examine the frequency of combinations of classes, **pd.crosstab function** `pd.crosstab(select_column_for_index, select_column)` values in the column will become the names of the columns in the table, and the values will be the count of combined observations.
+- Aggregated values with **pd.crosstab()** add values argument, and use aggfunc to select what aggregated calculation we want to perform `pd.crosstab(data[column_for_index], data[select_column], values=data[col], aggfunc='str. for either mean or median or std')`
 
