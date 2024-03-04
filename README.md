@@ -86,3 +86,15 @@ Contains training materials for python data analysis
 
 - **What to do about outliers?** ask yuorself why these outliers exist. If they are a representative of a subset of the data, we could just **leave the values** however if we do know the values are not accurate, error occured during data collection then **remove the values** `(data>lower) & (data<upper)`
 
+##  Patterns over time
+
+- **Importing DateTime data**
+
+- adding the *parse_dates* keyword argument to the CSV import and setting it equal to a list of column names that should be interpreted as DateTime data. `parse_dates=['col']`
+- we may wish to update data types to DateTime data after we import the data using **pd.to_datetime** `data[col]=pd.to_datetime(data[col])`
+- we can also use pd-dot-to_datetime to combine "month", "day", and "year" into single date `data[col]=pd.to_datetime(data[["month", "day", and "year"]])`
+- we might also want to extract just the month, day, or year from a column containing a full date, we can append **.dt.month** to extract the month attribute `data[col]=data[col].dt.year`
+
+- **Visualizing patterns over time**
+
+- use line plots
