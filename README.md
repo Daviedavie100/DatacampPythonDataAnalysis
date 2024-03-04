@@ -151,3 +151,13 @@ This is where one class occurs more frequently than others. This can bias result
 - **Cross-tabulation** is another method for looking at class frequency. It enables us to examine the frequency of combinations of classes, **pd.crosstab function** `pd.crosstab(select_column_for_index, select_column)` values in the column will become the names of the columns in the table, and the values will be the count of combined observations.
 - Aggregated values with **pd.crosstab()** add values argument, and use aggfunc to select what aggregated calculation we want to perform `pd.crosstab(data[column_for_index], data[select_column], values=data[col], aggfunc='str. for either mean or median or std')`
 
+## Generating new features
+
+Sometimes the format of our data can limit the ability to detect relationships or inhibit the potential performance of machine learning models. The remedy is to **generate new features** from our data!
+
+- Check correlation with a heatmap, between numerical features in the data, if few then consider generating new ones
+- Viewing data types using `.dtypes` to confirm features that require cleaning using `.replace()`
+- For Dates, you can extract month or weekday
+- Departure and arrival times, we extract the hour of departure and arrival from their respective columns.
+- Create categories for numerical variables, we can group numeric data and label them as classes. Use descriptive statistics to split equally across a group using quartiles. `data.quantile(0.25), data.median(), data.quantile(0.75), data.max()` categories. Then create labels and bins `labels=[]` and `bins=[0,..,max]`. Call **pd.cut method** `data[new_col]=pd.cut(pass_data, set_labels,provide_bins)`
+- Visualize using `count plots` for different categories
