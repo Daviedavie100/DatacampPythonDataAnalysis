@@ -98,6 +98,11 @@ EDA is performed for a variety of reasons, such as detecting patterns and relati
 - we can also use pd-dot-to_datetime to combine "month", "day", and "year" into single date `data[col]=pd.to_datetime(data[["month", "day", and "year"]])`
 - we might also want to extract just the month, day, or year from a column containing a full date, we can append **.dt.month** to extract the month attribute `data[col]=data[col].dt.year`
 
+- Date formats `pd.to_datetime(data["Date_col"], format="%d/%m/%Y", errors= 'coerce')`
+- YYYY-MM-DD HH:MM:SS	%Y-%m-%d %H:%M:%S
+- YYYY-MM-DD	%Y-%m-%d
+- YY/MM/DD	    %y/%m/%d
+
 - **Visualizing patterns over time**
 
 - use line plots
@@ -161,3 +166,5 @@ Sometimes the format of our data can limit the ability to detect relationships o
 - Departure and arrival times, we extract the hour of departure and arrival from their respective columns.
 - Create categories for numerical variables, we can group numeric data and label them as classes. Use descriptive statistics to split equally across a group using quartiles. `data.quantile(0.25), data.median(), data.quantile(0.75), data.max()` categories. Then create labels and bins `labels=[]` and `bins=[0,..,max]`. Call **pd.cut method** `data[new_col]=pd.cut(pass_data, set_labels,provide_bins)`
 - Visualize using `count plots` for different categories
+
+## Generating hypotheses
