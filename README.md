@@ -168,3 +168,11 @@ Sometimes the format of our data can limit the ability to detect relationships o
 - Visualize using `count plots` for different categories
 
 ## Generating hypotheses
+
+- Generating hypotheses is a fundamental task for data scientists. When performing EDA, the question we should ask is how do we know what we are observing is true?
+- To make conclusions regarding relationships, differences, and patterns in our data, we need to use Hypothesis Testing. 
+- The acts of excessive exploratory analysis, the generation of multiple hypotheses, and the execution of multiple statistical tests are collectively known as **data snooping, or p-hacking**. 
+- Chances are, if we look at enough data and run enough tests, we will find a significant result.
+- So how do we generate hypotheses? 
+- We perform some EDA 
+- From there, we design experiment, which involves the following steps: (a) choosing a sample, (b) calculating how many data points we need, and (c) deciding what statistical test to run. 
